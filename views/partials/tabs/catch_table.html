@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="input-group">
+            <div class="input-group-addon">Search</div>
+            <input type="text" ng-model="catch_search" class="form-control">
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-12">
+        <table class="table table-responsive table-striped">
+            <thead>
+            <tr>
+                <td>Name</td>
+                <td>Catch above CP</td>
+                <td>Catch above IV</td>
+                <td>Always catch</td>
+                <td>Used logic</td>
+                <td></td>
+            </tr>
+            </thead>
+
+            <tr ng-repeat="(key, item) in pokemons | keyfilter:catch_search" id="catch_{{key}}">
+                <td>
+                    {{key}}
+                </td>
+                <td>
+                    <a href="#" editable-number="item.catch_above_cp">{{ item.catch_above_cp || 'Click to edit'}}</a>
+                </td>
+                <td>
+                    <a href="#" editable-number="item.catch_above_iv">{{ item.catch_above_iv || 'Click to edit'}}</a>
+                </td>
+                <td>
+                    <input type="checkbox" ng-model="item.always_catch">
+                </td>
+                <td>
+                    <select ng-model="item.logic">
+                        <option value="or">Or</option>
+                        <option value="and">And</option>
+                    </select>
+
+                </td>
+                <td class="remove_row">
+                    <i class="glyphicon glyphicon-trash" ng-click="remove(key)"></i>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
