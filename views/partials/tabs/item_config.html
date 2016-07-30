@@ -16,7 +16,7 @@
     </div>
     <!-- @TODO List space used / space available -->
     <div class="col-xs-4 col-md-2 margin-bottom-10" ng-repeat="(itemId, item) in items | itemfilter:item_search">
-        <img ng-src="/images/items/{{itemId}}.png" class="img-responsive" fallback-src="/images/items/0.png">
+        <img ng-src="./images/items/{{itemId}}.png" class="img-responsive" fallback-src="./images/items/0.png">
         <label>{{item}}</label><br />
         <input type="number" class="form-control" ng-model="keepItems[itemId.toString()].keep">
     </div>
