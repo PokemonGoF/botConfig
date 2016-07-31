@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table">
+            <tr>
+                <td>
+                    Evolve captured
+                </td>
+                <td>
+                    <input type="checkbox" ng-model="config.evolve_captured">
+                </td>
+                </tr>
+        </table>
+    </div>
+    <div class="col-xs-12">
+        <div class="input-group">
+            <div class="input-group-addon">Search</div>
+            <input type="text" ng-model="evo_search.Name" class="form-control">
+        </div>
+    </div>
+</div>
+<br/>
+<div class="row">
+    <div class="pokemon_col" ng-repeat="pokemon in pokemons | filter:evo_search" ng-class="{'pokemon_selected': evolveThose[pokemon.Name] == true}"
+         ng-if="pokemon['Next evolution(s)']">
+        <label><img ng-src="./images/pokemon/{{pokemon.Number}}.png" class="pokemon_image"><br/>
+            <input type="checkbox" ng-model="evolveThose[pokemon.Name]"> {{pokemon.Name}}
+
+        </label>
+    </div>
+
+</div>

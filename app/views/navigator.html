@@ -1,0 +1,141 @@
+<div class="row navigator">
+    <div class="col-xs-12">
+        {{index}}
+        <table class="table">
+            <tr>
+                <td>
+                    Walking mode<br/>
+
+                </td>
+                <td>
+                    <select ng-model="config.navigator.type">
+                        <option value="spiral">Spiral</option>
+                        <option value="path">Path</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Path mode<br/>
+                    linear = bot will turn around at the last waypoint<br/>
+                    and along the given waypoints in reverse order.<br/><br/>
+                    loop = bot will walk along all specified waypoints <br/>and then move directly to the first waypoint
+                    again
+                </td>
+                <td>
+                    <select ng-model="config.navigator.path_mode">
+                        <option value="loop">Loop</option>
+                        <option value="linear">Linear</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-xs-12">
+        <div ng-if="config.navigator.type == 'path'">
+            <div class="tools">
+                <div ng-class="{'active': mode=='drag'}" ng-click="setMode('drag')">Drag</div>
+                <div ng-class="{'active': mode=='draw'}" ng-click="setMode('draw')">Draw line</div>
+                <div ng-class="{'active': mode=='route'}" ng-click="setMode('route')">Calculate route</div>
+            </div>
+            <ng-map zoom="13" center="52.375457,4.8761486" class="nav_map" ng-class="{'drawing': mode == 'draw'}" style="display:block;height:500px"
+                    map-type-id="ROADMAP" on-click="addMarkerAndPath()">
+                <shape ng-if="path"
+                       name="polyline"
+                       path="{{path}}"
+                       stroke-color="#FF0000"
+                       stroke-opacity="1.0"
+                       stroke-weight="3">
+
+                </shape>
+                <marker position="{{path[0]}}" label="A" ng-if="path.length >= 0"></marker>
+                <marker position="{{path[path.length-1]}}" label="B" ng-if="path.length > 1"></marker>
+                <directions
+                        ng-if="mode == 'route' && start && end"
+                        draggable="true"
+                        travel-mode="{{travelMode}}"
+                        origin="{{start}}"
+                        destination="{{end}}">
+                </directions>
+            </ng-map>
+
+
+            <div ng-if="mode == 'route'">
+                <div class="col-xs-6 col-md-4">
+                    <table class="table table-responsive">
+                        <tr>
+                            <td>
+                                Direction mode
+                            </td>
+                            <td>
+                                <select ng-model="travelMode">
+                                    <option value="DRIVING">Driving</option>
+                                    <option value="WALKING">Walking</option>
+                                    <option value="BICYCLING">Bicycling</option>
+                                    <option value="TRANSIT">Transit</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Start</td>
+                            <td>
+
+                                <input places-auto-complete
+                                       ng-model="startPoint"
+                                       types="'address'"
+                                       on-place-changed="startPlaceChanged()"/>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>End</td>
+                            <td>
+
+                                <input places-auto-complete
+                                       ng-model="endPoint"
+                                       types="'address'"
+                                       on-place-changed="endPlaceChanged()"/>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-xs-12 col-md-5" ng-if="map.directionsRenderers[0].directions.routes">
+                    <div>
+                        Route information: {{map.directionsRenderers[0].directions.routes[0].legs[0].distance.text}}
+                        {{map.directionsRenderers[0].directions.routes[0].legs[0].duration.text}}
+                        <br/>
+                        Directions path length: {{map.directionsRenderers[0].directions.routes[0].overview_path.length}}
+                        <br />
+                        You can change the route by dragging the white points.<br />
+                        <b>Once done click the green save button.</b>
+                    </div>
+                    <button class="btn btn-success"
+                            ng-click="saveRoute('gmaps', map.directionsRenderers[0].directions.routes[0].legs[0].steps)">
+                        Save
+                    </button>
+                </div>
+
+
+            </div>
+
+            <div class="col-xs-4 col-md-3" ng-if="mode == 'draw'">
+                <button class="btn btn-danger" ng-click="clearPath()" ng-if="mode=='draw'">Clear path</button>
+            </div>
+            <div class="col-xs-6 col-md-5" ng-if="mode == 'draw'">
+                <div>
+                    Click on the map to place waypoints.<br />
+                    Directions path length: {{path.length}}
+                    <br />
+                    <b>Once done click the green save button.</b>
+                </div>
+                <button class="btn btn-success"
+                        ng-click="saveRoute('draw', path)">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
