@@ -8,8 +8,8 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css"/>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -22,43 +22,50 @@
     your browser</a> to improve your experience.</p>
 <![endif]-->
 <div ng-controller="MainCtrl">
-<!-- Add your site or application content here -->
-<div class="header">
-    <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
+    <!-- Add your site or application content here -->
+    <div class="header">
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
 
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#js-navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#js-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
 
-                <a class="navbar-brand" href="#/">botConfig</a>
-            </div>
+                    <a class="navbar-brand" href="#/">botConfig</a>
+                </div>
 
-            <div class="collapse navbar-collapse" id="js-navbar-collapse">
+                <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
-                <ul class="nav navbar-nav">
-                    <li ng-class="{ active: isActive('/')}"><a href="#/">General config</a></li>
-                    <li ng-class="{ active: isActive('/item-config')}"><a ng-href="#/item-config">Item config</a></li>
-                    <li ng-class="{ active: isActive('/evolve-config')}"><a ng-href="#/evolve-config">Evolve</a></li>
-                    <li ng-class="{ active: isActive('/capture-config')}"><a ng-href="#/capture-config">Capture</a></li>
-                    <li ng-class="{ active: isActive('/release-config')}"><a ng-href="#/release-config">Release</a></li>
-                    <li ng-class="{ active: isActive('/navigator')}"><a ng-href="#/navigator">Navigator</a></li>
-                    <li ng-class="{ active: isActive('/get-config')}"><a ng-href="#/get-config"><i class="glyphicon glyphicon-download-alt"></i></a></li>
-                </ul>
+                    <ul class="nav navbar-nav">
+                        <li ng-class="{ active: isActive('/')}"><a href="#/">General config</a></li>
+                        <li ng-class="{ active: isActive('/item-config')}"><a ng-href="#/item-config">Item config</a>
+                        </li>
+                        <li ng-class="{ active: isActive('/evolve-config')}"><a ng-href="#/evolve-config">Evolve</a>
+                        </li>
+                        <li ng-class="{ active: isActive('/capture-config')}"><a ng-href="#/capture-config">Capture</a>
+                        </li>
+                        <li ng-class="{ active: isActive('/release-config')}"><a ng-href="#/release-config">Release</a>
+                        </li>
+                        <li ng-class="{ active: isActive('/navigator')}"><a ng-href="#/navigator">Navigator</a></li>
+                        <li ng-class="{ active: isActive('/get-config')}"><a ng-href="#/get-config"><i
+                                class="glyphicon glyphicon-download-alt"></i></a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="container" >
-
-    <div ng-view></div>
-</div>
+    <div class="container">
+        <div ng-view></div>
+    </div>
+    <div class="footer">
+        Made with love and much <a href="https://paypal.me/SanderBrand" target="_blank">coffee</a> by <a href="https://github.com/brantje" target="_blank">brantje</a>.
+    </div>
 </div>
 <script src="//maps.google.com/maps/api/js?key=AIzaSyBDP41ob3NvNKuN7prVMuJnGLc46M-HiVs&libraries=placeses,visualization,drawing,geometry,places"></script>
 <!-- build:js(.) scripts/vendor.js -->
