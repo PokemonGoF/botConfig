@@ -1847,9 +1847,6 @@
         attrs.$observe('types', function(val) {
           if (val) {
             var optionValue = parser.toOptionValue(val, {key: 'types'});
-            optionValue = $.map(optionValue, function(value, index) {
-              return [value];
-            });
             autocomplete.setTypes(optionValue);
           }
         });
