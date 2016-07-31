@@ -1,0 +1,16 @@
+<form class="form-inline pokemonSelect">
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-addon">Select pokemon</div>
+            <select title="Select Pokemon" ng-init="selectedPokemon = null" class="form-control"
+                    ng-model="selectedPokemon">
+                <option ng-repeat="pokemon in pokemons" value="{{pokemon.Name}}">
+                    {{pokemon.Name}}
+                </option>
+            </select>
+        </div>
+    </div>
+    <button class="btn btn-default" ng-click="btnClick(selectedPokemon)">Add</button>
+</form>
+
+

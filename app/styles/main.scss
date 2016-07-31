@@ -1,0 +1,124 @@
+// bower:scss
+// endbower
+body{
+  overflow-x: hidden;
+}
+.nav, .pagination, .carousel, .panel-title a {
+  cursor: pointer;
+}
+
+.tab-pane {
+  margin-top: 20px;
+}
+
+.pokemonSelect {
+  margin-bottom: 10px;
+}
+
+.editable-empty {
+  color: #428bca !important;
+}
+
+.editable-wrap {
+  .editable-input {
+    width: 90px !important;
+  }
+  .btn {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+  }
+}
+
+.angular-google-map-container {
+  height: 400px;
+}
+
+.config_area{
+  width: 100%;
+  min-height: 250px;
+}
+
+
+.pokemon_col{
+  float: left;
+  height: 100px;
+  width: 130px;
+  text-align: center;
+  margin: 10px;
+
+  cursor: pointer;
+  &.pokemon_selected{
+    background-color: #00A000;
+    color: #fff;
+  }
+  .pokemon_image{
+    margin: 5px;
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+  }
+  input[type="checkbox"]{
+    display: inline;
+  }
+}
+
+.remove_row{
+  i{
+    visibility: hidden;
+    color: #A00000;
+  }
+}
+.table{
+  tr:hover{
+    .remove_row{
+      i{
+        cursor: pointer;
+        visibility: visible;
+      }
+    }
+  }
+}
+.margin-bottom-10{
+  margin-bottom: 10px;
+}
+.navigator{
+  .nav_map{
+    &.drawing{
+      cursor: crosshair !important;
+    }
+    margin-bottom: 50px;
+  }
+}
+.tools{
+  position: relative;
+  bottom: -40px;
+  z-index: 9999;
+  left: 103px;
+
+
+  .active{
+    font-weight: bold;
+  }
+  div:first-child{
+    border-left: 1px solid #c9c9c9;
+  }
+  div:last-child{
+    border-right: none;
+  }
+  div{
+    display: inline-block;
+    border-right: 1px solid #c9c9c9;
+    font-size: 11px;
+    height: 30px;
+    padding: 7px;
+    float: left;
+    background-color: #fff;
+    cursor: pointer;
+  }
+
+  div:hover{
+    background-color: #e7e7e7;
+  }
+}
