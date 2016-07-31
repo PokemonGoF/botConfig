@@ -20,7 +20,7 @@
             <tr>
                 <td>Password</td>
                 <td>
-                    <input type="text" ng-model="config.password" class="form-control">
+                    <input type="password" ng-model="config.password" class="form-control">
                 </td>
             </tr>
             <tr>
@@ -41,7 +41,7 @@
             </tr>
 
             <tr>
-                <td>Walk speed (in km/h)</td>
+                <td>Walk speed (in ms/h)</td>
                 <td>
                     <input type="text" ng-model="config.walk" class="form-control">
                 </td>
@@ -90,7 +90,7 @@
         <h4>Select start location</h4>
         Click on the map to set your start location
         <ng-map zoom="13" center="52.375457,4.8761486" on-click="placeMarker(event)">
-            <marker position="{{marker.lat}},{{marker.lng}}" draggable="true" on-dragend="setCoords(event)" animation="Animation.DROP"></marker>
+            <marker position="{{ config.location }}" draggable="true" on-dragend="setCoords(event)" animation="Animation.DROP"></marker>
         </ng-map>
         <div>
             Current start location: {{config.location}}

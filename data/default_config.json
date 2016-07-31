@@ -9,11 +9,9 @@
     "avoid_circles": true,
     "max_circle_size": 50
   },
-
   "websocket_server": false,
   "reconnecting_timeout": 15,
   "evolve_cp_min": 300,
-  "softban_fix": false,
   "navigator": {
     "type": "path",
     "path_mode": "loop",
@@ -41,7 +39,7 @@
       "type": "EvolveAll",
       "config": {
         "evolve_speed": 20,
-        "use_lucky_egg": true
+        "use_lucky_egg": false
       }
     },
     {
@@ -66,7 +64,7 @@
 
 
 
-  "walk": 4.16,
+  "walk": 60,
   "action_wait_min": 1,
   "action_wait_max": 4,
   "debug": false,
