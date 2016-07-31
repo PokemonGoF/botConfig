@@ -23,7 +23,6 @@ angular.module('botConfApp')
     };
 
     $scope.setCoords = function (event) {
-
       if(event.latLng){
         $scope.config.location = event.latLng.lat() + ',' + event.latLng.lng();
       }

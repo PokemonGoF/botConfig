@@ -37,7 +37,8 @@ angular.module('botConfApp')
       }
     };
     $scope.travelMode = 'WALKING';
-    $scope.startPoint = '';
+    $scope.startPoint = $scope.config.location;
+    $scope.start = $scope.config.location;
     $scope.endPoint = '';
     $scope.startPlaceChanged = function () {
       $scope.startPoint = this.getPlace();
@@ -50,7 +51,7 @@ angular.module('botConfApp')
       $scope.map.setCenter($scope.endPoint.geometry.location);
     };
 
-    $scope.path = [];
+
     $scope.addMarkerAndPath = function (event) {
       if ($scope.mode != 'draw') {
         return;
@@ -86,6 +87,9 @@ angular.module('botConfApp')
     };
 
     $scope.clearPath = function () {
-      $scope.path = [[]];
+      var _start = $scope.config.location.split(',')
+      $scope.path = [_start];
     };
+    $scope.clearPath()
+
   }]);

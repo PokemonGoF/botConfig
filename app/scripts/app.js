@@ -13,7 +13,8 @@ angular
     'xeditable',
     'ui.bootstrap',
     'ngMap',
-    'ngRoute'
+    'ngRoute',
+    'LocalStorageModule'
   ]).config(function($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
@@ -44,4 +45,6 @@ angular
       templateUrl: './views/get_config.html',
       controller: 'GetConfigCtrl'
     });
+}).run(function(editableOptions) {
+  editableOptions.theme = 'bs3';
 });

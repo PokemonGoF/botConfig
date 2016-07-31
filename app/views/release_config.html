@@ -31,7 +31,8 @@
                     {{key}}
                 </td>
                 <td>
-                    <a href="#" editable-number="item.release_below_cp">{{ item.release_below_cp || 'Click to edit'}}</a>
+                    <a href="#" editable-number="item.release_below_cp" ng-show="!item.keep_best_iv && !item.keep_best_cp">{{ item.release_below_cp || 'Click to edit'}}</a>
+                    <span ng-if="item.keep_best_iv || item.keep_best_cp">Using keep best iv or<br /> keep best cp</span>
                 </td>
                 <td>
                     <select ng-model="item.logic">
@@ -42,7 +43,8 @@
                 </td>
                 <td>
                     <a href="#" editable-number="item.release_below_iv"
-                       ng-disabled="item.catch_above_cp || item.catch_above_iv">{{ item.release_below_iv || 'Click to edit'}}</a>
+                       ng-show="!item.catch_above_cp && !item.keep_best_iv">{{ item.keep_best_cp || 'Click to edit'}}</a>
+                    <span ng-if="item.keep_best_iv || item.keep_best_cp">Using keep best iv or<br /> keep best cp</span>
                 </td>
 
                 <td>
