@@ -19,7 +19,7 @@ To push a new version to production do the following.
 - Add this remote: `git@github.com:PokemonGoF/botConfig.git`
 - Followed by a fetch of the origin
 - Checkout the gh-pages branch
-- Go back to the root dir and run a `grunt serve`
+- Go back to the root dir and run a `grunt build`
 
 ## TODO
 - [ ] Make some tests
