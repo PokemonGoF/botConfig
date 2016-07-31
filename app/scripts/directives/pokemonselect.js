@@ -12,8 +12,7 @@ angular.module('botConfApp')
       templateUrl: './views/partials/pokemon_select.html',
       restrict: 'E',
       scope:{
-        action: '&',
-        list: '='
+        action: '&'
       },
       controller: function postLink($scope) {
 
