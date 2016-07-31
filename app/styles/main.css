@@ -85,4 +85,9 @@ body {
   .tools div:hover {
     background-color: #e7e7e7; }
 
+.footer {
+  width: 100%;
+  text-align: center;
+  color: #aaaaaa; }
+
 /*# sourceMappingURL=main.css.map */
