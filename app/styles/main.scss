@@ -131,6 +131,11 @@ body{
 .goBack{
   margin-bottom: 15px;
 }
+.taskmenu{
+  li{
+    cursor: pointer;
+  }
+}
 .taskTable{
   margin-top: 15px;
   .dragger{
