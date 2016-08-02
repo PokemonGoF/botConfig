@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-xs-12">
+        <h4>Manage tasks</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12" ng-init="open = false">
+        <div class="btn-group" uib-dropdown is-open="status.isopen">
+            <button id="single-button" type="button" class="btn btn-success" uib-dropdown-toggle>
+                Add task <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu taskmenu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                <li role="menuitem" ng-repeat="task in availableTasks track by $index"><a ng-click="addTask(task)">{{task.type}}</a>
+                </li>
+            </ul>
+        </div>
+
+        <table class="table table-responsive table-bordered taskTable">
+            <thead>
+            <tr>
+                <td></td>
+                <td>Task</td>
+                <td class="text-right">Actions</td>
+            </tr>
+            </thead>
+            <tbody ui-sortable ng-model="tasks">
+            <tr ng-repeat="task in tasks" class="item">
+                <td class="dragger"><span class="glyphicon glyphicon-resize-vertical" aria-hidden="true"
+                                          style="cursor:move"></span></td>
+                <td class="title">{{task.type}}</td>
+                <td class="actions text-right">
+                    <a ng-href="#/task-config/{{task.type}}" uib-tooltip='Edit task'
+                       ng-click="editTask(task)"
+                       ng-if="task.config || task.type == 'TransferPokemon' || task.type == 'CatchVisiblePokemon' || task.type == 'CatchLuredPokemon'"
+                    ><span class="glyphicon glyphicon-edit" aria-hidden="true"> </span></a>
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true" uib-tooltip='Delete task'
+                          ng-click="deleteTask($index)"> </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

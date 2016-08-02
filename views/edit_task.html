@@ -1,0 +1,18 @@
+<a class="btn btn-success goBack" ng-href="#/task-config">
+    Go back
+</a>
+<div ng-include="include_src" ng-if="use_ng_include"></div>
+<div ng-if="task.config || task.type == 'TransferPokemon' || task.type == 'CatchVisiblePokemon' || task.type == 'CatchLuredPokemon'"></div>
+<div class="row" ng-if="!use_ng_include">
+    <table class="table table-bordered">
+        <tr ng-repeat="(k, v) in task_options">
+            <td style="max-width: 150px;">
+                {{k}}
+            </td>
+            <td>
+                <input type="checkbox" ng-model="task_config[k]" ng-if="(v | typeof)== 'boolean' ">
+                <input type="text" class="form-control" ng-model="task_config[k]" ng-if="(v | typeof) != 'boolean' ">
+            </td>
+        </tr>
+    </table>
+</div>

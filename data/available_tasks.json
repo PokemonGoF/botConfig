@@ -1,0 +1,79 @@
+[
+  {
+    "type": "CatchLuredPokemon"
+  },
+  {
+    "type": "CatchVisiblePokemon"
+  },
+  {
+    "type": "EvolveAll",
+    "config": {
+      "evolve_all": "all",
+      "first_evolve_by": "iv",
+      "evolve_above_cp": 100,
+      "evolve_above_iv": 0.7,
+      "logic": "and",
+      "evolve_speed": 20,
+      "use_lucky_egg": false
+    }
+  },
+  {
+    "type": "FollowPath",
+    "config": {
+      "path_mode": "loop",
+      "path_file": ""
+    }
+  },
+  {
+    "type": "FollowSpiral",
+    "config": {
+      "diameter": 4,
+      "step_size": 70
+    }
+
+  },
+  {
+    "type": "FollowCluster"
+  },
+  {
+    "type": "HandleSoftBan"
+  },
+  {
+    "type": "IncubateEggs",
+    "config": {
+      "longer_eggs_first": true
+    }
+  },
+  {
+    "type": "MoveToFort",
+    "config": {
+      "lure_attraction": true,
+      "lure_max_distance": 2000
+    }
+  },
+  {
+    "type": "NicknamePokemon",
+    "config": {
+      "nickname_template": ""
+    }
+  },
+  {
+    "type": "RecycleItems",
+    "config": {
+      "item_filter": {
+        "Pokeball": {"keep": 100},
+        "Potion": {"keep": 10},
+        "Super Potion": {"keep": 20},
+        "Hyper Potion": {"keep": 30},
+        "Revive": {"keep": 30},
+        "Razz Berry": {"keep": 100}
+      }
+    }
+  },
+  {
+    "type": "SpinFort"
+  },
+  {
+    "type": "TransferPokemon"
+  }
+]
