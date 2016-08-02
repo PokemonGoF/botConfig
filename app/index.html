@@ -45,6 +45,10 @@
                         <li ng-class="{ active: isActive('/')}">
                             <a href="#/">General config</a>
                         </li>
+                        <li ng-class="{ active: isActive('/task-config')}">
+                            <a href="#/task-config">Task config</a>
+                        </li>
+                        <!--
                         <li ng-class="{ active: isActive('/item-config')}" ng-show="hasTask('RecycleItems')">
                             <a ng-href="#/item-config">Item config</a>
                         </li>
@@ -63,7 +67,7 @@
                         <li ng-class="{ active: isActive('/get-config')}">
                             <a ng-href="#/get-config"><i class="glyphicon glyphicon-download-alt"></i>
                             </a>
-                        </li>
+                        </li> -->
                         <li><a ng-click="resetConfig()">
                             <i class="glyphicon glyphicon-trash"></i> Reset</a>
                         </li>
@@ -86,12 +90,14 @@
 <!-- build:js(.) scripts/vendor.js -->
 <!-- bower:js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+<script src="bower_components/angular-ui-sortable/sortable.min.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 

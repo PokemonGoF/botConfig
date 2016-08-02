@@ -14,12 +14,17 @@ angular
     'ui.bootstrap',
     'ngMap',
     'ngRoute',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'ui.sortable'
   ]).config(function($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
       templateUrl: './views/general_config.html',
       controller: 'GeneralCtrl'
+    })
+    .when('/task-config', {
+      templateUrl: './views/manage_tasks.html',
+      controller: 'TaskCtrl'
     })
     .when('/item-config', {
       templateUrl: './views/item_config.html',

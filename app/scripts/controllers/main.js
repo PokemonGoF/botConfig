@@ -21,21 +21,6 @@ angular.module('botConfApp')
       });
     };
 
-    $scope.availableTasks = {
-      'CatchLuredPokemon': {},
-      'CatchVisiblePokemon': {},
-      'EvolveAll': {},
-      'FollowPath': {},
-      'FollowSpiral': {},
-      'FollowCluster': {},
-      'HandleSoftBan': {},
-      'IncubateEggs': {},
-      'MoveToFort': {},
-      'NicknamePokemon': {},
-      'RecycleItems': {},
-      'SpinFort': {},
-      'TransferPokemon': {}
-    };
 
     $scope.hasTask = function (taskName) {
       return ConfigService.hasTask(taskName)
