@@ -8,6 +8,7 @@
     "angular-bootstrap": "^2.0.0",
     "angular-route": "^1.5.8",
     "angular-local-storage": "^0.3.0",
+    "angular-ui-sortable": "^0.14.3",
     "ngmap": "^1.17.3"
   },
   "devDependencies": {

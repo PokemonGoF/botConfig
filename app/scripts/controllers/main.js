@@ -8,29 +8,25 @@
  * Controller of the botConfApp
  */
 angular.module('botConfApp')
-  .controller('MainCtrl', ['$scope', 'DataService', '$location', 'localStorageService', function ($scope, DataService, $location, localStorageService) {
+  .controller('MainCtrl', ['$scope', 'ConfigService', '$location', function ($scope, ConfigService, $location) {
+
+    ConfigService.loadConfig().then(function (config) {
+      $scope.config = config;
+    });
 
 
-    if(localStorageService.isSupported) {
-      var localConfig = localStorageService.get('config');
-      console.log(localConfig)
-      if(localConfig){
-        $scope.config = localConfig
-      } else {
-        DataService.defaultConfig().then(function (result) {
-          $scope.config = result;
-        });
-      }
-    }
+    $scope.resetConfig = function () {
+      ConfigService.defaultConfig().then(function (result) {
+        $scope.config = result;
+      });
+    };
 
-    $scope.$watch('config', function(){
-      if(localStorageService.isSupported) {
-        localStorageService.set('config', $scope.config);
-      }
-    }, true);
+
+    $scope.hasTask = function (taskName) {
+      return ConfigService.hasTask(taskName)
+    };
 
     $scope.saveToPc = function (data, filename) {
-
       if (!data) {
         console.error('No data');
         return;
@@ -45,9 +41,6 @@ angular.module('botConfApp')
       }
 
       var blob = new Blob([data], {type: 'text/json'});
-
-      // FOR IE:
-
       if (window.navigator && window.navigator.msSaveOrOpenBlob) {
         window.navigator.msSaveOrOpenBlob(blob, filename);
       }
@@ -65,7 +58,6 @@ angular.module('botConfApp')
     };
 
     /**
-     * @TODO Save config
      * @TODO IMPORT config
      */
     $scope.isActive = function (viewLocation) {
