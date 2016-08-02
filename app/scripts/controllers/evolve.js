@@ -33,7 +33,6 @@ angular.module('botConfApp')
         });
 
         if(evolve_all.length > 0){
-          //$scope.config.evolve_all = evolve_all.join(',');
           ConfigService.setTaskConfig('EvolveAll',{
             evolve_all:  evolve_all.join(',')
           })

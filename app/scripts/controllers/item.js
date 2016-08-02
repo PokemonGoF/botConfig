@@ -19,7 +19,6 @@ angular.module('botConfApp')
 
     $scope.$watch('keepItems', function(newVal){
       if(newVal){
-        $scope.config.item_filter = {};
         var sum = 0;
         angular.forEach(newVal, function(obj, key){
           if(obj.keep){

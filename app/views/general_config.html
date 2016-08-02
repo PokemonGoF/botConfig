@@ -87,6 +87,14 @@
     </div>
 
     <div class="col-xs-12 col-md-6">
+        <h4>Enabled tasks</h4>
+        <ul>
+            <li ng-repeat="task in availableTasks">{{task}}</li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-6">
         <h4>Select start location</h4>
         Click on the map to set your start location
         <ng-map zoom="13" center="52.375457,4.8761486" on-click="placeMarker(event)">

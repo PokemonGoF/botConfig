@@ -36,9 +36,14 @@ angular.module('botConfApp')
         });
       },
 
+      saveConfig: function(){
+        if (localStorageService.isSupported) {
+          localStorageService.set('config', _config);
+        }
+      },
+
       getTask: function (taskType) {
         var _task;
-
         angular.forEach(_config.tasks, function (task) {
           if (task.type == taskType) {
             _task = task;
@@ -56,6 +61,7 @@ angular.module('botConfApp')
             );
           }
         });
+        this.saveConfig();
       },
 
       hasTask: function (taskType) {

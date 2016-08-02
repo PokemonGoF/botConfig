@@ -21,12 +21,27 @@ angular.module('botConfApp')
       });
     };
 
-    $scope.hasTask = function(taskName){
+    $scope.availableTasks = {
+      'CatchLuredPokemon': {},
+      'CatchVisiblePokemon': {},
+      'EvolveAll': {},
+      'FollowPath': {},
+      'FollowSpiral': {},
+      'FollowCluster': {},
+      'HandleSoftBan': {},
+      'IncubateEggs': {},
+      'MoveToFort': {},
+      'NicknamePokemon': {},
+      'RecycleItems': {},
+      'SpinFort': {},
+      'TransferPokemon': {}
+    };
+
+    $scope.hasTask = function (taskName) {
       return ConfigService.hasTask(taskName)
-    }
+    };
 
     $scope.saveToPc = function (data, filename) {
-
       if (!data) {
         console.error('No data');
         return;
@@ -41,9 +56,6 @@ angular.module('botConfApp')
       }
 
       var blob = new Blob([data], {type: 'text/json'});
-
-      // FOR IE:
-
       if (window.navigator && window.navigator.msSaveOrOpenBlob) {
         window.navigator.msSaveOrOpenBlob(blob, filename);
       }
@@ -61,7 +73,6 @@ angular.module('botConfApp')
     };
 
     /**
-     * @TODO Save config
      * @TODO IMPORT config
      */
     $scope.isActive = function (viewLocation) {

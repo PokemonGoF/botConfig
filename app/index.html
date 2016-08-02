@@ -57,7 +57,7 @@
                         <li ng-class="{ active: isActive('/release-config')}" ng-show="hasTask('CatchVisiblePokemon') || hasTask('CatchLuredPokemon')">
                             <a ng-href="#/release-config">Release</a>
                         </li>
-                        <li ng-class="{ active: isActive('/navigator')}">
+                        <li ng-class="{ active: isActive('/navigator')}" ng-show="hasTask('FollowPath')">
                             <a ng-href="#/navigator">Navigator</a>
                         </li>
                         <li ng-class="{ active: isActive('/get-config')}">
@@ -113,6 +113,7 @@
 <script src="scripts/filters/itemfilter.js"></script>
 <script src="scripts/controllers/getconfig.js"></script>
 <script src="scripts/services/configservice.js"></script>
+<script src="scripts/controllers/task.js"></script>
 <!-- endbuild -->
 </body>
 </html>
