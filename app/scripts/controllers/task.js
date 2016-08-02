@@ -8,7 +8,7 @@
  * Controller of the botConfApp
  */
 angular.module('botConfApp')
-  .controller('TaskCtrl', ['$scope', 'ConfigService', function ($scope, ConfigService) {
+  .controller('TaskCtrl', ['$scope', 'ConfigService', '$location', function ($scope, ConfigService, $location) {
 
     /**
      * List all available tasks and their default configuration
@@ -33,6 +33,9 @@ angular.module('botConfApp')
     $scope.addTask = function(task){
       var _task = angular.copy(task);
       $scope.tasks.push(_task);
+      if(task.config){
+        $location.path('/task-config/'+ task.type);
+      }
     };
 
     $scope.deleteTask = function (index) {
