@@ -90,4 +90,16 @@ body {
   text-align: center;
   color: #aaaaaa; }
 
+.goBack {
+  margin-bottom: 15px; }
+
+.taskTable {
+  margin-top: 15px; }
+  .taskTable .dragger {
+    width: 50px; }
+  .taskTable .actions {
+    width: 75px; }
+    .taskTable .actions .glyphicon {
+      cursor: pointer; }
+
 /*# sourceMappingURL=main.css.map */

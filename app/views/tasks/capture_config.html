@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" ng-controller="CaptureCtrl">
     <div class="col-xs-12">
         <pokemon-select action="addPokemon('catch', pokemon)"></pokemon-select>
     </div>
@@ -26,10 +26,10 @@
                     {{key}}
                 </td>
                 <td>
-                    <a href="#" editable-number="item.catch_above_cp">{{ item.catch_above_cp || 'Click to edit'}}</a>
+                    <a href="#" editable-number="item.catch_above_cp">{{ item.catch_above_cp || '0'}}</a>
                 </td>
                 <td>
-                    <a href="#" editable-number="item.catch_above_iv">{{ item.catch_above_iv || 'Click to edit'}}</a>
+                    <a href="#" editable-number="item.catch_above_iv">{{ item.catch_above_iv || '0'}}</a>
                 </td>
                 <td>
                     <input type="checkbox" ng-model="item.always_catch">

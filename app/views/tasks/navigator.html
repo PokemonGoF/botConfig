@@ -1,17 +1,13 @@
-<div class="row navigator">
+<div class="row navigator" ng-controller="NavigatorCtrl">
     <div class="col-xs-12">
-        {{index}}
         <table class="table">
             <tr>
                 <td>
-                    Walking mode<br/>
+                    Path file<br/>
 
                 </td>
                 <td>
-                    <select ng-model="config.navigator.type">
-                        <option value="spiral">Spiral</option>
-                        <option value="path">Path</option>
-                    </select>
+                    <input type="text" ng-model="task_config.config.path_file">
                 </td>
             </tr>
             <tr>
@@ -23,7 +19,7 @@
                     again
                 </td>
                 <td>
-                    <select ng-model="config.navigator.path_mode">
+                    <select ng-model="task_config.config.path_mode">
                         <option value="loop">Loop</option>
                         <option value="linear">Linear</option>
                     </select>
@@ -32,13 +28,13 @@
         </table>
     </div>
     <div class="col-xs-12" style="margin-bottom: 100px;">
-        <div ng-if="config.navigator.type == 'path'">
+        <div>
             <div class="tools">
                 <div ng-class="{'active': mode=='drag'}" ng-click="setMode('drag')">Drag</div>
                 <div ng-class="{'active': mode=='draw'}" ng-click="setMode('draw')">Draw line</div>
                 <div ng-class="{'active': mode=='route'}" ng-click="setMode('route')">Calculate route</div>
             </div>
-            <ng-map zoom="13" center="52.375457,4.8761486" class="nav_map" ng-class="{'drawing': mode == 'draw'}" style="display:block;height:500px"
+            <ng-map zoom="13" center="{{config.location}}" class="nav_map" ng-class="{'drawing': mode == 'draw'}" style="display:block;height:500px"
                     map-type-id="ROADMAP" on-click="addMarkerAndPath()">
                 <shape ng-if="path"
                        name="polyline"

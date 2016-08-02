@@ -26,7 +26,11 @@ angular
       templateUrl: './views/manage_tasks.html',
       controller: 'TaskCtrl'
     })
-    .when('/item-config', {
+    .when('/task-config/:task', {
+      templateUrl: './views/edit_task.html',
+      controller: 'EditTaskCtrl'
+    })
+    /*.when('/item-config', {
       templateUrl: './views/item_config.html',
       controller: 'ItemCtrl'
     })
@@ -45,7 +49,7 @@ angular
     .when('/navigator', {
       templateUrl: './views/navigator.html',
       controller: 'NavigatorCtrl'
-    })
+    })*/
     .when('/get-config', {
       templateUrl: './views/get_config.html',
       controller: 'GetConfigCtrl'

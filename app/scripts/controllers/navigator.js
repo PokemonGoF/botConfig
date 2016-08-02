@@ -8,7 +8,10 @@
  * Controller of the botConfApp
  */
 angular.module('botConfApp')
-  .controller('NavigatorCtrl',  ['$scope', 'NgMap', function ($scope, NgMap) {
+  .controller('NavigatorCtrl',  ['$scope', 'NgMap', 'ConfigService', function ($scope, NgMap, ConfigService) {
+
+    $scope.task_config = ConfigService.getTask('FollowPath');
+
     $scope.marker = null;
     $scope.map_options = {
       center: [-117.38061189651489,
@@ -27,9 +30,7 @@ angular.module('botConfApp')
 
 
     $scope.mode = 'drag';
-    $scope.$on('c',function(){
-      console.log('hi');
-    })
+
     $scope.setMode = function (mode) {
       $scope.mode = mode;
       if (mode == 'route') {
@@ -37,8 +38,7 @@ angular.module('botConfApp')
       }
     };
     $scope.travelMode = 'WALKING';
-    $scope.startPoint = $scope.config.location;
-    $scope.start = $scope.config.location;
+    $scope.startPoint ='';
     $scope.endPoint = '';
     $scope.startPlaceChanged = function () {
       $scope.startPoint = this.getPlace();

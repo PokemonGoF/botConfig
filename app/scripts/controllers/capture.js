@@ -18,6 +18,7 @@ angular.module('botConfApp')
       console.log(key, pokemon)
       if(!$scope.config[key][pokemon]){
         $scope.config[key][pokemon] = {
+          logic: 'or'
         };
       }
     }

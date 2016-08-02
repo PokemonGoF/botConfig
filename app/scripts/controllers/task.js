@@ -8,42 +8,39 @@
  * Controller of the botConfApp
  */
 angular.module('botConfApp')
-  .controller('TaskCtrl',['$scope', function ($scope) {
+  .controller('TaskCtrl', ['$scope', 'ConfigService', function ($scope, ConfigService) {
 
     /**
      * List all available tasks and their default configuration
      * @TODO Link this to the config file?
      */
-    $scope.availableTasks = {
-      'CatchLuredPokemon': {},
-      'CatchVisiblePokemon': {},
-      'EvolveAll': {},
-      'FollowPath': {},
-      'FollowSpiral': {},
-      'FollowCluster': {},
-      'HandleSoftBan': {},
-      'IncubateEggs': {},
-      'MoveToFort': {},
-      'NicknamePokemon': {},
-      'RecycleItems': {},
-      'SpinFort': {},
-      'TransferPokemon': {}
-    };
+    $scope.tasks = ConfigService.getTasks();
 
-    $scope.startDrag = function(){
+    ConfigService.availableTasks().then(function(_tasks){
+      $scope.availableTasks = _tasks;
+    });
 
-    };
-    $scope.endDrag = function(){
+
+
+    $scope.$watch('tasks', function (tasks) {
+      ConfigService.setTasks(tasks);
+    }, true);
+
+    $scope.startDrag = function () {
 
     };
 
-
-    $scope.deleteTask = function(task){
-      console.log('Deleting task: ', task)
+    $scope.addTask = function(task){
+      var _task = angular.copy(task);
+      $scope.tasks.push(_task);
     };
 
-    $scope.editTask = function(task){
-      console.log('Edit task: ', task)
+    $scope.deleteTask = function (index) {
+      $scope.tasks.splice(index, 1)
+    };
+
+    $scope.editTask = function (task) {
+
     };
 
   }]);

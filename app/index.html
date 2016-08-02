@@ -63,11 +63,11 @@
                         </li>
                         <li ng-class="{ active: isActive('/navigator')}" ng-show="hasTask('FollowPath')">
                             <a ng-href="#/navigator">Navigator</a>
-                        </li>
+                        </li> -->
                         <li ng-class="{ active: isActive('/get-config')}">
                             <a ng-href="#/get-config"><i class="glyphicon glyphicon-download-alt"></i>
                             </a>
-                        </li> -->
+                        </li>
                         <li><a ng-click="resetConfig()">
                             <i class="glyphicon glyphicon-trash"></i> Reset</a>
                         </li>
@@ -78,6 +78,9 @@
     </div>
 
     <div class="container">
+        <div class="alert alert-info">
+            This config generator is experimental, since the config is currently undergoing heavy changes.
+        </div>
         <div ng-view></div>
     </div>
     <div class="footer">
@@ -120,6 +123,8 @@
 <script src="scripts/controllers/getconfig.js"></script>
 <script src="scripts/services/configservice.js"></script>
 <script src="scripts/controllers/task.js"></script>
+<script src="scripts/controllers/edittask.js"></script>
+<script src="scripts/filters/typeof.js"></script>
 <!-- endbuild -->
 </body>
 </html>

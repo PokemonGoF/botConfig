@@ -128,3 +128,18 @@ body{
   text-align: center;
   color: #aaaaaa;
 }
+.goBack{
+  margin-bottom: 15px;
+}
+.taskTable{
+  margin-top: 15px;
+  .dragger{
+    width: 50px;
+  }
+  .actions{
+    width: 75px;
+    .glyphicon{
+      cursor: pointer;
+    }
+  }
+}
