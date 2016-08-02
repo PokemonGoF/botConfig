@@ -56,12 +56,13 @@ angular.module('botConfApp')
       },
 
       hasTask: function (taskType) {
+        var _found = false;
         angular.forEach(_config.tasks, function (task) {
           if (task.type == taskType) {
-            return true;
+            _found = true;
           }
         });
-        return false;
+        return _found;
       }
     }
   }]);
