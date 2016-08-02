@@ -1,24 +1,10 @@
+
 {
   "auth_service": "google",
   "username": "YOUR_USERNAME",
   "password": "YOUR_PASSWORD",
   "location": "SOME_LOCATION",
   "gmapkey": "GOOGLE_MAPS_API_KEY",
-  "max_steps": 5,
-  "forts": {
-    "avoid_circles": true,
-    "max_circle_size": 50
-  },
-  "websocket_server": false,
-  "reconnecting_timeout": 15,
-  "evolve_cp_min": 300,
-  "navigator": {
-    "type": "path",
-    "path_mode": "loop",
-
-    "path_file": "configs/path.json"
-  },
-
   "tasks": [
     {
       "type": "HandleSoftBan"
@@ -38,12 +24,24 @@
     {
       "type": "EvolveAll",
       "config": {
+        "evolve_all": "NONE",
+        "evolve_cp_min": 300,
         "evolve_speed": 20,
         "use_lucky_egg": false
       }
     },
     {
-      "type": "RecycleItems"
+      "type": "RecycleItems",
+      "config": {
+        "item_filter": {
+          "Pokeball":       { "keep" : 100 },
+          "Potion":         { "keep" : 10 },
+          "Super Potion":   { "keep" : 20 },
+          "Hyper Potion":   { "keep" : 30 },
+          "Revive":         { "keep" : 30 },
+          "Razz Berry":     { "keep" : 100 }
+        }
+      }
     },
     {
       "type": "CatchVisiblePokemon"
@@ -55,16 +53,27 @@
       "type": "SpinFort"
     },
     {
-      "type": "MoveToFort"
+      "type": "MoveToFort",
+      "config": {
+        "lure_attraction": true,
+        "lure_max_distance": 2000
+      }
     },
     {
-      "type": "FollowSpiral"
+      "type": "FollowSpiral",
+      "config": {
+        "diameter": 4,
+        "step_size": 70
+      }
     }
   ],
-
-
-
-  "walk": 60,
+  "map_object_cache_time": 5,
+  "forts": {
+    "avoid_circles": true,
+    "max_circle_size": 50
+  },
+  "websocket_server": false,
+  "walk": 4.16,
   "action_wait_min": 1,
   "action_wait_max": 4,
   "debug": false,
@@ -72,208 +81,37 @@
   "health_record": true,
   "location_cache": true,
   "distance_unit": "km",
-  "item_filter": {
-    "1": {
-      "keep": 50
-    },
-    "2": {
-      "keep": 50
-    },
-    "3": {
-      "keep": 50
-    },
-    "101": {
-      "keep": 10
-    },
-    "102": {
-      "keep": 25
-    },
-    "103": {
-      "keep": 25
-    },
-    "201": {
-      "keep": 25
-    },
-    "701": {
-      "keep": 100
-    }
-  },
-  "evolve_all": "NONE",
+  "reconnecting_timeout": 15,
   "evolve_captured": "NONE",
+  "catch_randomize_reticle_factor": 1.0,
+  "catch_randomize_spin_factor": 1.0,
   "catch": {
-    "any": {
-      "catch_above_cp": 0,
-      "catch_above_iv": 0,
-      "logic": "or"
-    },
-    "Lapras": {
-      "always_catch": true
-    },
-    "Moltres": {
-      "always_catch": true
-    },
-    "Zapdos": {
-      "always_catch": true
-    },
-    "Articuno": {
-      "always_catch": true
-    },
-    "Mewtwo": {
-      "always_catch": true
-    },
-    "Dragonite": {
-      "always_catch": true
-    },
-    "Snorlax": {
-      "always_catch": true
-    },
-    "Mew": {
-      "always_catch": true
-    },
-    "Arcanine": {
-      "always_catch": true
-    },
-    "Vaporeon": {
-      "always_catch": true
-    },
-    "Gyarados": {
-      "always_catch": true
-    },
-    "Exeggutor": {
-      "always_catch": true
-    },
-    "Muk": {
-      "always_catch": true
-    },
-    "Weezing": {
-      "always_catch": true
-    },
-    "Flareon": {
-      "always_catch": true
-    },
-    "Growlithe": {
-      "always_catch": true
-    },
-    "Dragonair": {
-      "always_catch": true
-    },
-    "Grimer": {
-      "always_catch": true
-    },
-    "Magikarp": {
-      "always_catch": true
-    },
-    "Exeggcute": {
-      "always_catch": true
-    },
-    "Eevee": {
-      "always_catch": true
-    },
-    "Slowbro": {
-      "always_catch": true
-    },
-    "Victreebel": {
-      "always_catch": true
-    },
-    "Machamp": {
-      "always_catch": true
-    },
-    "Poliwrath": {
-      "always_catch": true
-    },
-    "Clefable": {
-      "always_catch": true
-    },
-    "Nidoking": {
-      "always_catch": true
-    },
-    "Venusaur": {
-      "always_catch": true
-    },
-    "Charizard": {
-      "always_catch": true
-    },
-    "Golduck": {
-      "always_catch": true
-    },
-    "Nidoqueen": {
-      "always_catch": true
-    },
-    "Vileplume": {
-      "always_catch": true
-    },
-    "Blastoise": {
-      "always_catch": true
-    },
-    "Omastar": {
-      "always_catch": true
-    },
-    "Aerodactyl": {
-      "always_catch": true
-    },
-    "Golem": {
-      "always_catch": true
-    },
-    "Wigglytuff": {
-      "always_catch": true
-    },
-    "Dewgong": {
-      "always_catch": true
-    },
-    "Ninetales": {
-      "always_catch": true
-    },
-    "Magmar": {
-      "always_catch": true
-    },
-    "Kabutops": {
-      "always_catch": true
-    },
-    "Electabuzz": {
-      "always_catch": true
-    },
-    "Starmie": {
-      "always_catch": true
-    },
-    "Jolteon": {
-      "always_catch": true
-    },
-    "Rapidash": {
-      "always_catch": true
-    },
-    "Pinsir": {
-      "always_catch": true
-    },
-    "Scyther": {
-      "always_catch": true
-    },
-    "Tentacruel": {
-      "always_catch": true
-    },
-    "Gengar": {
-      "always_catch": true
-    },
-    "Hypno": {
-      "always_catch": true
-    },
-    "Pidgeot": {
-      "always_catch": true
-    },
-    "Rhydon": {
-      "always_catch": true
-    },
-    "Seaking": {
-      "always_catch": true
-    },
-    "Kangaskhan": {
-      "always_catch": true
-    }
+    "any": {"catch_above_cp": 0, "catch_above_iv": 0, "logic": "or"}
   },
   "release": {
-    "any": {
-      "release_below_cp": 0,
-      "release_below_iv": 0,
-      "logic": "or"
-    }
+    "any": {"release_below_cp": 0, "release_below_iv": 0, "logic": "or"}
+  },
+  "vips" : {
+    "Any pokemon put here directly force to use Berry & Best Ball to capture, to secure the capture rate!": {},
+    "any": {"catch_above_cp": 1200, "catch_above_iv": 0.9, "logic": "or" },
+    "Lapras": {},
+    "Moltres": {},
+    "Zapdos": {},
+    "Articuno": {},
+
+    "// S-Tier pokemons (if pokemon can be evolved into tier, list the representative)": {},
+    "Mewtwo": {},
+    "Dragonite": {},
+    "Snorlax": {},
+    "// Mew evolves to Mewtwo": {},
+    "Mew": {},
+    "Arcanine": {},
+    "Vaporeon": {},
+    "Gyarados": {},
+    "Exeggutor": {},
+    "Muk": {},
+    "Weezing": {},
+    "Flareon": {}
+
   }
 }
