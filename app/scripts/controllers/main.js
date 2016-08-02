@@ -8,26 +8,22 @@
  * Controller of the botConfApp
  */
 angular.module('botConfApp')
-  .controller('MainCtrl', ['$scope', 'DataService', '$location', 'localStorageService', function ($scope, DataService, $location, localStorageService) {
+  .controller('MainCtrl', ['$scope', 'ConfigService', '$location', function ($scope, ConfigService, $location) {
+
+    ConfigService.loadConfig().then(function (config) {
+      $scope.config = config;
+    });
 
 
-    if(localStorageService.isSupported) {
-      var localConfig = localStorageService.get('config');
-      console.log(localConfig)
-      if(localConfig){
-        $scope.config = localConfig
-      } else {
-        DataService.defaultConfig().then(function (result) {
-          $scope.config = result;
-        });
-      }
+    $scope.resetConfig = function () {
+      ConfigService.defaultConfig().then(function (result) {
+        $scope.config = result;
+      });
+    };
+
+    $scope.hasTask = function(taskName){
+      return ConfigService.hasTask(taskName)
     }
-
-    $scope.$watch('config', function(){
-      if(localStorageService.isSupported) {
-        localStorageService.set('config', $scope.config);
-      }
-    }, true);
 
     $scope.saveToPc = function (data, filename) {
 

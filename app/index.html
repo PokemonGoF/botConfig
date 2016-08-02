@@ -43,7 +43,7 @@
 
                     <ul class="nav navbar-nav">
                         <li ng-class="{ active: isActive('/')}"><a href="#/">General config</a></li>
-                        <li ng-class="{ active: isActive('/item-config')}"><a ng-href="#/item-config">Item config</a>
+                        <li ng-class="{ active: isActive('/item-config')}" ng-show="hasTask('RecycleItems') "><a ng-href="#/item-config">Item config</a>
                         </li>
                         <li ng-class="{ active: isActive('/evolve-config')}"><a ng-href="#/evolve-config">Evolve</a>
                         </li>
@@ -54,6 +54,8 @@
                         <li ng-class="{ active: isActive('/navigator')}"><a ng-href="#/navigator">Navigator</a></li>
                         <li ng-class="{ active: isActive('/get-config')}"><a ng-href="#/get-config"><i
                                 class="glyphicon glyphicon-download-alt"></i></a></li>
+                        <li><a  ng-click="resetConfig()"><i
+                                class="glyphicon glyphicon-trash"></i> Reset</a></li>
                     </ul>
                 </div>
             </div>
@@ -98,6 +100,7 @@
 <script src="scripts/filters/keyfilter.js"></script>
 <script src="scripts/filters/itemfilter.js"></script>
 <script src="scripts/controllers/getconfig.js"></script>
+<script src="scripts/services/configservice.js"></script>
 <!-- endbuild -->
 </body>
 </html>
