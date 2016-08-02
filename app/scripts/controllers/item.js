@@ -13,8 +13,8 @@ angular.module('botConfApp')
       $scope.items = result;
     });
 
-    var task = ConfigService.getTaskOptions('RecycleItems');
-    console.log(task);
+    var task = ConfigService.getTask('RecycleItems');
+
     $scope.keepItems = task.config.item_filter;
 
     $scope.$watch('keepItems', function(newVal){

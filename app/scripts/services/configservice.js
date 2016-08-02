@@ -35,8 +35,8 @@ angular.module('botConfApp')
           return result.data;
         });
       },
-      getTaskOptions: function (taskType) {
-        var deferred = $q.defer();
+
+      getTask: function (taskType) {
         var _task;
 
         angular.forEach(_config.tasks, function (task) {
@@ -47,10 +47,13 @@ angular.module('botConfApp')
         return _task;
       },
 
-      setTaskConfig: function(taskType, config){
+      setTaskConfig: function (taskType, config) {
         angular.forEach(_config.tasks, function (task) {
           if (task.type == taskType) {
-              task.config = config;
+            task.config = angular.merge(
+              task.config,
+              config
+            );
           }
         });
       },

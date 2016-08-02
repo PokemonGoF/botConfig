@@ -8,8 +8,8 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css"/>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -42,20 +42,31 @@
                 <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
                     <ul class="nav navbar-nav">
-                        <li ng-class="{ active: isActive('/')}"><a href="#/">General config</a></li>
-                        <li ng-class="{ active: isActive('/item-config')}" ng-show="hasTask('RecycleItems') "><a ng-href="#/item-config">Item config</a>
+                        <li ng-class="{ active: isActive('/')}">
+                            <a href="#/">General config</a>
                         </li>
-                        <li ng-class="{ active: isActive('/evolve-config')}"><a ng-href="#/evolve-config">Evolve</a>
+                        <li ng-class="{ active: isActive('/item-config')}" ng-show="hasTask('RecycleItems')">
+                            <a ng-href="#/item-config">Item config</a>
                         </li>
-                        <li ng-class="{ active: isActive('/capture-config')}"><a ng-href="#/capture-config">Capture</a>
+                        <li ng-class="{ active: isActive('/evolve-config')}" ng-show="hasTask('EvolveAll')">
+                            <a ng-href="#/evolve-config">Evolve</a>
                         </li>
-                        <li ng-class="{ active: isActive('/release-config')}"><a ng-href="#/release-config">Release</a>
+                        <li ng-class="{ active: isActive('/capture-config')}" ng-show="hasTask('CatchVisiblePokemon') || hasTask('CatchLuredPokemon')">
+                            <a ng-href="#/capture-config">Capture</a>
                         </li>
-                        <li ng-class="{ active: isActive('/navigator')}"><a ng-href="#/navigator">Navigator</a></li>
-                        <li ng-class="{ active: isActive('/get-config')}"><a ng-href="#/get-config"><i
-                                class="glyphicon glyphicon-download-alt"></i></a></li>
-                        <li><a  ng-click="resetConfig()"><i
-                                class="glyphicon glyphicon-trash"></i> Reset</a></li>
+                        <li ng-class="{ active: isActive('/release-config')}" ng-show="hasTask('CatchVisiblePokemon') || hasTask('CatchLuredPokemon')">
+                            <a ng-href="#/release-config">Release</a>
+                        </li>
+                        <li ng-class="{ active: isActive('/navigator')}">
+                            <a ng-href="#/navigator">Navigator</a>
+                        </li>
+                        <li ng-class="{ active: isActive('/get-config')}">
+                            <a ng-href="#/get-config"><i class="glyphicon glyphicon-download-alt"></i>
+                            </a>
+                        </li>
+                        <li><a ng-click="resetConfig()">
+                            <i class="glyphicon glyphicon-trash"></i> Reset</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -66,7 +77,8 @@
         <div ng-view></div>
     </div>
     <div class="footer">
-        Made with love and much <a href="https://paypal.me/SanderBrand" target="_blank">coffee</a> by <a href="https://github.com/brantje" target="_blank">brantje</a>.<br />
+        Made with love and much <a href="https://paypal.me/SanderBrand" target="_blank">coffee</a> by <a
+            href="https://github.com/brantje" target="_blank">brantje</a>.<br/>
         For issues, please refer to the <a href="https://github.com/PokemonGoF/botConfig" target="_blank">Github</a>
     </div>
 </div>
