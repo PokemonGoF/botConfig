@@ -8,7 +8,7 @@
  * Controller of the botConfApp
  */
 angular.module('botConfApp')
-  .controller('ItemCtrl',  ['$scope', 'DataService', 'ConfigService', '$rootScope', function ($scope, DataService, ConfigService, $trootScope) {
+  .controller('RecycleItemsCtrl',  ['$scope', 'DataService', 'ConfigService', '$rootScope', function ($scope, DataService, ConfigService, $trootScope) {
     DataService.itemList().then(function (result) {
       $scope.items = result;
     });

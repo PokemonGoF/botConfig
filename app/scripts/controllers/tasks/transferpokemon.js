@@ -8,7 +8,7 @@
  * Controller of the botConfApp
  */
 angular.module('botConfApp')
-  .controller('ReleaseCtrl', ['$scope', function ($scope) {
+  .controller('TransferPokemonCtrl', ['$scope', function ($scope) {
     $scope.remove = function(key){
       delete $scope.config.release[key];
     };

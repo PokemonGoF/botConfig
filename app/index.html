@@ -52,7 +52,7 @@
                         <li ng-class="{ active: isActive('/item-config')}" ng-show="hasTask('RecycleItems')">
                             <a ng-href="#/item-config">Item config</a>
                         </li>
-                        <li ng-class="{ active: isActive('/evolve-config')}" ng-show="hasTask('EvolveAll')">
+                        <li ng-class="{ active: isActive('/evolve-config')}" ng-show="hasTask('EvolvePokemon')">
                             <a ng-href="#/evolve-config">Evolve</a>
                         </li>
                         <li ng-class="{ active: isActive('/capture-config')}" ng-show="hasTask('CatchVisiblePokemon') || hasTask('CatchLuredPokemon')">
@@ -109,11 +109,19 @@
 <script src="scripts/directives/ng-map.js"></script>
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/general.js"></script>
-<script src="scripts/controllers/release.js"></script>
-<script src="scripts/controllers/item.js"></script>
-<script src="scripts/controllers/capture.js"></script>
-<script src="scripts/controllers/evolve.js"></script>
-<script src="scripts/controllers/navigator.js"></script>
+
+
+<script src="scripts/controllers/tasks/transferpokemon.js"></script>
+<script src="scripts/controllers/tasks/evolve.js"></script>
+<script src="scripts/controllers/tasks/capture.js"></script>
+<script src="scripts/controllers/tasks/recycleitems.js"></script>
+<script src="scripts/controllers/tasks/followpath.js"></script>
+<script src="scripts/controllers/tasks/incubateeggs.js"></script>
+<script src="scripts/controllers/tasks/movetofort.js"></script>
+<script src="scripts/controllers/tasks/followspiral.js"></script>
+
+
+
 <script src="scripts/services/dataservice.js"></script>
 <script src="scripts/directives/pokemonselect.js"></script>
 <script src="scripts/directives/configtextarea.js"></script>
@@ -123,7 +131,6 @@
 <script src="scripts/controllers/getconfig.js"></script>
 <script src="scripts/services/configservice.js"></script>
 <script src="scripts/controllers/task.js"></script>
-<script src="scripts/controllers/edittask.js"></script>
 <script src="scripts/filters/typeof.js"></script>
 <!-- endbuild -->
 </body>

@@ -26,10 +26,6 @@ angular
       templateUrl: './views/manage_tasks.html',
       controller: 'TaskCtrl'
     })
-    .when('/task-config/:task', {
-      templateUrl: './views/edit_task.html',
-      controller: 'EditTaskCtrl'
-    })
     /*.when('/item-config', {
       templateUrl: './views/item_config.html',
       controller: 'ItemCtrl'

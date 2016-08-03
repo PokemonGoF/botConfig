@@ -14,7 +14,7 @@ angular.module('botConfApp')
     });
     $scope.evolveThose = {};
 
-    var evo_conf = ConfigService.getTask('EvolveAll');
+    var evo_conf = ConfigService.getTask('EvolvePokemon');
     var arr = evo_conf.config.evolve_all.split(',');
     angular.forEach(arr, function(evolvePokemon){
       $scope.evolveThose[evolvePokemon] = true;
@@ -33,12 +33,12 @@ angular.module('botConfApp')
         });
 
         if(evolve_all.length > 0){
-          ConfigService.setTaskConfig('EvolveAll',{
+          ConfigService.setTaskConfig('EvolvePokemon',{
             evolve_all:  evolve_all.join(',')
           })
 
         } else {
-          ConfigService.setTaskConfig('EvolveAll',{
+          ConfigService.setTaskConfig('EvolvePokemon',{
             evolve_all:  'NONE'
           })
         }

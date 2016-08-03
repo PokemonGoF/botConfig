@@ -8,7 +8,7 @@
  * Controller of the botConfApp
  */
 angular.module('botConfApp')
-  .controller('NavigatorCtrl',  ['$scope', 'NgMap', 'ConfigService', function ($scope, NgMap, ConfigService) {
+  .controller('FollowPathCtrl',  ['$scope', 'NgMap', 'ConfigService', function ($scope, NgMap, ConfigService) {
 
     $scope.task_config = ConfigService.getTask('FollowPath');
 

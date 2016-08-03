@@ -22,7 +22,7 @@
       "type": "TransferPokemon"
     },
     {
-      "type": "EvolveAll",
+      "type": "EvolvePokemon",
       "config": {
         "evolve_all": "all",
         "first_evolve_by": "iv",

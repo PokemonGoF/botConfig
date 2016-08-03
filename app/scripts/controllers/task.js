@@ -33,9 +33,32 @@ angular.module('botConfApp')
     $scope.addTask = function(task){
       var _task = angular.copy(task);
       $scope.tasks.push(_task);
-      if(task.config){
-        $location.path('/task-config/'+ task.type);
+    };
+
+    $scope.hasConfig = function(task){
+      var forceConfig = ['CatchLuredPokemon', 'CatchVisiblePokemon', 'TransferPokemon'];
+      if(forceConfig.indexOf(task.type) >= 0){
+        return true
+      } else {
+        return !!task.config;
       }
+    };
+
+
+    $scope.getTemplate = function(task){
+      var file;
+      switch (task){
+        case 'CatchVisiblePokemon':
+        case 'CatchLuredPokemon':
+          file = 'capture_config.html';
+          break;
+
+        default:
+          file = task +'.html'
+
+      }
+
+      return './views/tasks/'+ file;
     };
 
     $scope.deleteTask = function (index) {

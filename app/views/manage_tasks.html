@@ -28,12 +28,14 @@
             <tr ng-repeat="task in tasks" class="item">
                 <td class="dragger"><span class="glyphicon glyphicon-resize-vertical" aria-hidden="true"
                                           style="cursor:move"></span></td>
-                <td class="title">{{task.type}}</td>
+                <td class="title" ng-init="showConfig = false;">
+                    {{task.type}}
+                    <div ng-if="hasConfig(task)">
+                        <a class="btn btn-default pull-right" ng-click="showConfig = !showConfig">{{ (showConfig) ?  'Hide' : 'Show' }} config</a>
+                        <div ng-include="getTemplate(task.type)" ng-show="showConfig"></div>
+                    </div>
+                </td>
                 <td class="actions text-right">
-                    <a ng-href="#/task-config/{{task.type}}" uib-tooltip='Edit task'
-                       ng-click="editTask(task)"
-                       ng-if="task.config || task.type == 'TransferPokemon' || task.type == 'CatchVisiblePokemon' || task.type == 'CatchLuredPokemon'"
-                    ><span class="glyphicon glyphicon-edit" aria-hidden="true"> </span></a>
                     <span class="glyphicon glyphicon-remove" aria-hidden="true" uib-tooltip='Delete task'
                           ng-click="deleteTask($index)"> </span>
                 </td>
